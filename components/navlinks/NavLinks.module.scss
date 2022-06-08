@@ -1,0 +1,17 @@
+@import "../../assets/colours.scss";
+.link_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 450px) {
+    display: none;
+  }
+  &__active_link {
+    margin-inline: 0.5rem;
+    border-bottom: 2px solid $accent;
+  }
+  &__link {
+    border-bottom: 2px solid transparent;
+    margin-inline: 0.5rem;
+  }
+}
