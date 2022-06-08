@@ -1,0 +1,28 @@
+@import "../../assets/colours.scss";
+
+.logo_container {
+  $logo-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  .logo_img {
+    width: $logo-size;
+    margin-top: $logo-size/6.5;
+  }
+  .logo_text {
+    font-family: inter-r;
+    font-size: $logo-size/1.5;
+    margin-left: $logo-size/8;
+    position: relative;
+    &::before {
+      content: "";
+      background-color: $accent;
+      width: 105%;
+      height: 2px;
+      position: absolute;
+      bottom: -2px;
+    }
+  }
+}

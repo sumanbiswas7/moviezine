@@ -1,0 +1,35 @@
+$input-colour: #2f3539;
+$element-colour: #6c7175;
+$input-height: 2rem;
+@import "../../assets/colours.scss";
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  position: relative;
+}
+.search_input {
+  background-color: $input-colour;
+  border: none;
+  border-radius: 0.3rem;
+  height: $input-height;
+  padding-left: 2.5rem;
+  padding-right: 0.5rem;
+  color: white;
+  &::placeholder {
+    color: $element-colour;
+    font-family: inter-r;
+  }
+  &:focus {
+    outline: 1px solid $accent;
+  }
+}
+
+.search_icon {
+  margin-top: 2px;
+  fill: $element-colour;
+  position: absolute;
+  left: $input-height/2;
+}
