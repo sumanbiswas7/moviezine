@@ -1,0 +1,28 @@
+@import "../assets/colours.scss";
+
+@font-face {
+  font-family: "inter-r";
+  src: url("/fonts/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "inter-l";
+  src: url("/fonts/Inter-Light.ttf") format("truetype");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: inter-l;
+  background-color: $background;
+  color: $text-colour-primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
