@@ -1,18 +1,28 @@
 @import "../assets/constants.scss";
+@import "../assets/colours.scss";
 .container {
-  background-color: #fff;
   height: 100vh - $nav-height;
   width: 100vw;
   display: flex;
   justify-content: space-between;
+  @media only screen and (max-width: 870px) {
+    flex-direction: column;
+  }
   &__1 {
-    background-color: green;
+    background-color: $background;
     height: 100%;
     width: 70%;
   }
   &__2 {
-    background-color: aqua;
+    background-color: $background-dark;
     height: 100%;
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 870px) {
+      width: 100%;
+      height: auto;
+    }
   }
 }

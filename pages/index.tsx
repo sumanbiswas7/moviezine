@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { NavBar } from "../components/navbar/NavBar";
 import styles from "../styles/Home.module.scss";
+import { OscarFeature } from "../components/feature/OscarFeature";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,9 @@ const Home: NextPage = () => {
         <NavBar />
         <div className={styles.container}>
           <div className={styles.container__1}></div>
-          <div className={styles.container__2}></div>
+          <div className={styles.container__2}>
+            <OscarFeature />
+          </div>
         </div>
       </main>
 
