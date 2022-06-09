@@ -8,9 +8,7 @@
   width: max-content;
   height: max-content;
   cursor: pointer;
-  @media only screen and (max-width: 450px) {
-    margin-top: 4px;
-  }
+  margin-top: 4px;
   .logo_img {
     width: $logo-size;
     margin-top: $logo-size/6.5;

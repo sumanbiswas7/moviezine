@@ -1,7 +1,8 @@
 @import "../../assets/colours.scss";
+@import "../../assets/constants.scss";
 .navbar {
   width: 100%;
-  height: 4rem;
+  height: $nav-height;
   background-color: $navbar;
   display: flex;
   justify-content: space-between;

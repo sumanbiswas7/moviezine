@@ -1,0 +1,18 @@
+@import "../assets/constants.scss";
+.container {
+  background-color: #fff;
+  height: 100vh - $nav-height;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  &__1 {
+    background-color: green;
+    height: 100%;
+    width: 70%;
+  }
+  &__2 {
+    background-color: aqua;
+    height: 100%;
+    width: 30%;
+  }
+}

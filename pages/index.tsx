@@ -14,6 +14,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <NavBar />
+        <div className={styles.container}>
+          <div className={styles.container__1}></div>
+          <div className={styles.container__2}></div>
+        </div>
       </main>
 
       <footer className={styles.footer}></footer>
