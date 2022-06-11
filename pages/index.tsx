@@ -3,8 +3,38 @@ import Head from "next/head";
 import { NavBar } from "../components/navbar/NavBar";
 import styles from "../styles/Home.module.scss";
 import { OscarFeature } from "../components/feature/OscarFeature";
+import { Movie } from "../components/movie/MoviePic";
+import { useEffect, useState } from "react";
+
+const DUMMY_DATA = [
+  {
+    movie_image: null,
+    movie_id: 7,
+  },
+  {
+    movie_image:
+      "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/f2a294a57a3f9f2786ea583a0485cea8",
+    movie_id: 8,
+  },
+  {
+    movie_image: null,
+    movie_id: 6,
+  },
+  {
+    movie_image: null,
+    movie_id: 10,
+  },
+  {
+    movie_image:
+      "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/f2a294a57a3f9f2786ea583a0485cea8",
+    movie_id: 9,
+  },
+];
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    DUMMY_DATA.slice;
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +46,35 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <NavBar />
         <div className={styles.container}>
-          <div className={styles.container__1}></div>
+          <div className={styles.container__1}>
+            <div className={styles.container__1__col}>
+              {DUMMY_DATA.map((item) => {
+                return (
+                  <>
+                    <Movie key={item.movie_id} imgUrl={item.movie_image} />
+                  </>
+                );
+              })}
+            </div>
+            <div className={styles.container__1__col}>
+              {DUMMY_DATA.map((item) => {
+                return (
+                  <>
+                    <Movie key={item.movie_id} imgUrl={item.movie_image} />
+                  </>
+                );
+              })}
+            </div>
+            <div className={styles.container__1__col}>
+              {DUMMY_DATA.map((item) => {
+                return (
+                  <>
+                    <Movie key={item.movie_id} imgUrl={item.movie_image} />
+                  </>
+                );
+              })}
+            </div>
+          </div>
           <div className={styles.container__2}>
             <OscarFeature />
           </div>
