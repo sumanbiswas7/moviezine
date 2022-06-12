@@ -4,6 +4,8 @@ import { NavBar } from "../components/navbar/NavBar";
 import styles from "../styles/Home.module.scss";
 import { OscarFeature } from "../components/feature/OscarFeature";
 import { Movie } from "../components/movie/MoviePic";
+import { useQuery } from "@apollo/client";
+import { SIX_RANDOM_MOVIES } from "../graphql/queries";
 import { useEffect, useState } from "react";
 
 const DUMMY_DATA = [
@@ -20,7 +22,10 @@ const DUMMY_DATA = [
 ];
 
 const Home: NextPage = () => {
-  useEffect(() => {}, []);
+  const { loading, data, error } = useQuery(SIX_RANDOM_MOVIES);
+  if (loading) return <p>{loading}</p>;
+  if (error) return <p>{error.message}</p>;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -34,7 +39,7 @@ const Home: NextPage = () => {
         <div className={styles.container}>
           <div className={styles.container__1}>
             <div className={styles.container__1__col}>
-              {DUMMY_DATA.map((item) => {
+              {data.randommovies.slice(0, 2).map((item) => {
                 return (
                   <>
                     <Movie key={item.movie_id} imgUrl={item.movie_image} />
@@ -43,7 +48,7 @@ const Home: NextPage = () => {
               })}
             </div>
             <div className={styles.container__1__col}>
-              {DUMMY_DATA.map((item) => {
+              {data.randommovies.slice(2, 4).map((item) => {
                 return (
                   <>
                     <Movie key={item.movie_id} imgUrl={item.movie_image} />
@@ -52,7 +57,7 @@ const Home: NextPage = () => {
               })}
             </div>
             <div className={styles.container__1__col}>
-              {DUMMY_DATA.map((item) => {
+              {data.randommovies.slice(4, 6).map((item) => {
                 return (
                   <>
                     <Movie key={item.movie_id} imgUrl={item.movie_image} />
