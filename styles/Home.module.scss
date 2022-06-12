@@ -5,16 +5,17 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
   @media only screen and (max-width: 870px) {
     flex-direction: column;
   }
   &__1 {
     background-color: $background;
-    height: 100%;
     width: 70%;
+    height: max-content;
+    align-self: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     overflow-y: scroll;
     scroll-behavior: smooth;
     &::-webkit-scrollbar {
@@ -22,6 +23,10 @@
     }
     &__col {
       height: 100%;
+    }
+    @media only screen and (max-width: 870px) {
+      width: max-content;
+      margin-block: auto;
     }
   }
   &__2 {

@@ -4,12 +4,17 @@
   width: $size;
   height: $size * 1.5;
   border-radius: $radius;
-  background-color: red;
   overflow: hidden;
-  margin-top: 1.5rem;
-  margin-inline: 1rem;
+  margin: 2rem;
   &__img {
     width: 100%;
     height: 100%;
+  }
+  @media only screen and (max-width: 700px) {
+    $size-small: 7rem;
+    width: $size-small;
+    height: $size-small * 1.5;
+    margin-inline: 0.5rem;
+    margin-block: 2rem;
   }
 }

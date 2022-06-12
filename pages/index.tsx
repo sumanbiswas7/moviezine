@@ -8,21 +8,9 @@ import { useEffect, useState } from "react";
 
 const DUMMY_DATA = [
   {
-    movie_image: null,
-    movie_id: 7,
-  },
-  {
     movie_image:
       "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/f2a294a57a3f9f2786ea583a0485cea8",
     movie_id: 8,
-  },
-  {
-    movie_image: null,
-    movie_id: 6,
-  },
-  {
-    movie_image: null,
-    movie_id: 10,
   },
   {
     movie_image:
@@ -32,9 +20,7 @@ const DUMMY_DATA = [
 ];
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    DUMMY_DATA.slice;
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className={styles.container}>
       <Head>
