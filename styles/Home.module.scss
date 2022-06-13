@@ -8,6 +8,7 @@
   z-index: 1;
   @media only screen and (max-width: 870px) {
     flex-direction: column;
+    // height: 93vh - $nav-height;
   }
   &__1 {
     background-color: $background;
