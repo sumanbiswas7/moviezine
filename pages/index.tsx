@@ -15,7 +15,10 @@ interface Movie {
 const Home: NextPage = () => {
   const { loading, data, error } = useQuery(SIX_RANDOM_MOVIES);
   if (loading) return <p>{loading}</p>;
-  if (error) return <p>{error.message}</p>;
+  if (error) {
+    console.log(error);
+    return <p>{error.message}</p>;
+  }
 
   return (
     <div className={styles.container}>

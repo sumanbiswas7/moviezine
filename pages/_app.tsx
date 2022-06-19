@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://192.168.0.111:3999/",
+  uri: "https://moviezine-server.herokuapp.com/",
   cache: new InMemoryCache(),
 });
 
