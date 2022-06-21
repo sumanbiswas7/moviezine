@@ -4,7 +4,7 @@ import Link from "next/link";
 interface Props {
   imgUrl: string | null;
   id: number;
-  rating: number;
+  rating: string;
 }
 export function Movie({ imgUrl, id, rating }: Props) {
   const nullImgUrl =
@@ -18,7 +18,11 @@ export function Movie({ imgUrl, id, rating }: Props) {
         ) : (
           <img src={imgUrl} className={styles.movie_box__img} />
         )}
-        {rating && <div className={styles.movie_box__rating_box}>{rating}</div>}
+        {rating && (
+          <div className={styles.movie_box__rating_box}>
+            {parseFloat(rating).toFixed(1)}
+          </div>
+        )}
       </div>
     </Link>
   );
