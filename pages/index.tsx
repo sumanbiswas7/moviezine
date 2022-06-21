@@ -10,7 +10,7 @@ import { SIX_RANDOM_MOVIES } from "../graphql/queries";
 interface Movie {
   movie_id: number;
   movie_image: string;
-  movie_rating: number;
+  movie_rating: string;
 }
 
 const Home: NextPage = () => {

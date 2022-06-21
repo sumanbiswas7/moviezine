@@ -1,7 +1,7 @@
 export default function Id() {
   return (
     <div>
-      <li>Hiisad</li>
+      <li>Work in progress</li>
     </div>
   );
 }
