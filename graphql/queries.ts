@@ -6,6 +6,7 @@ export const SIX_RANDOM_MOVIES = gql`
     randommovies(limit: 6) {
       movie_image
       movie_id
+      movie_rating
     }
   }
 `;

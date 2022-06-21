@@ -1,3 +1,4 @@
+@import "../../assets/colours.scss";
 .movie_box {
   $size: 9.5rem;
   $radius: 5px;
@@ -8,6 +9,10 @@
   margin: 2rem;
   border: none;
   display: flex;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   &__img {
     width: 100%;
     height: 100%;
@@ -18,5 +23,23 @@
     height: $size-small * 1.5;
     margin-inline: 0.5rem;
     margin-block: 1.5rem;
+  }
+  &__rating_box {
+    @media only screen and (max-width: 700px) {
+      display: none;
+    }
+    $size: 1.8rem;
+    position: absolute;
+    right: -$size/2;
+    top: 80%;
+    background-color: $accent;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    font-size: $size * 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }

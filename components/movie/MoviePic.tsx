@@ -4,8 +4,9 @@ import Link from "next/link";
 interface Props {
   imgUrl: string | null;
   id: number;
+  rating: number;
 }
-export function Movie({ imgUrl, id }: Props) {
+export function Movie({ imgUrl, id, rating }: Props) {
   const nullImgUrl =
     "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/404_image_not_found.jpg";
 
@@ -17,6 +18,7 @@ export function Movie({ imgUrl, id }: Props) {
         ) : (
           <img src={imgUrl} className={styles.movie_box__img} />
         )}
+        {rating && <div className={styles.movie_box__rating_box}>{rating}</div>}
       </div>
     </Link>
   );

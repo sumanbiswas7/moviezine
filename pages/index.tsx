@@ -10,6 +10,7 @@ import { SIX_RANDOM_MOVIES } from "../graphql/queries";
 interface Movie {
   movie_id: number;
   movie_image: string;
+  movie_rating: number;
 }
 
 const Home: NextPage = () => {
@@ -39,6 +40,7 @@ const Home: NextPage = () => {
                     key={item.movie_id}
                     imgUrl={item.movie_image}
                     id={item.movie_id}
+                    rating={item.movie_rating}
                   />
                 );
               })}
@@ -50,6 +52,7 @@ const Home: NextPage = () => {
                     key={item.movie_id}
                     imgUrl={item.movie_image}
                     id={item.movie_id}
+                    rating={item.movie_rating}
                   />
                 );
               })}
@@ -61,6 +64,7 @@ const Home: NextPage = () => {
                     key={item.movie_id}
                     imgUrl={item.movie_image}
                     id={item.movie_id}
+                    rating={item.movie_rating}
                   />
                 );
               })}
