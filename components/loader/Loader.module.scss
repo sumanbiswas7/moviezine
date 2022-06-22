@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  &__logo_img {
+    $size: 3rem;
+    width: $size;
+    height: $size;
+    background-image: url("../../public/loader_img.png");
+    background-size: cover;
+    margin-bottom: 1rem;
+    margin-left: .8rem;
+  }
+}

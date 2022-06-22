@@ -6,6 +6,7 @@ import { OscarFeature } from "../components/feature/OscarFeature";
 import { Movie } from "../components/movie/MoviePic";
 import { useQuery } from "@apollo/client";
 import { SIX_RANDOM_MOVIES } from "../graphql/queries";
+import { Loader } from "../components/loader/Loader";
 
 interface Movie {
   movie_id: number;
@@ -15,7 +16,7 @@ interface Movie {
 
 const Home: NextPage = () => {
   const { loading, data, error } = useQuery(SIX_RANDOM_MOVIES);
-  if (loading) return <p>{loading}</p>;
+  if (loading) return <Loader />;
   if (error) {
     console.log(error);
     return <p>{error.message}</p>;
