@@ -11,7 +11,7 @@ export function Movie({ imgUrl, id, rating }: Props) {
     "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/404_image_not_found.jpg";
 
   return (
-    <Link href={`/${id}`}>
+    <Link href={`/movies/${id}`}>
       <div className={styles.movie_box}>
         {imgUrl == null || imgUrl == "" ? (
           <img src={nullImgUrl} className={styles.movie_box__img} />
