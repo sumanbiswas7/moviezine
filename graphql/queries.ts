@@ -17,6 +17,9 @@ export const GET_MOVIE_BY_ID = gql`
     getmovie(movieId: $movieId) {
       movie_name
       movie_image
+      movie_description
+      movie_director
+      movie_rating
     }
   }
 `;

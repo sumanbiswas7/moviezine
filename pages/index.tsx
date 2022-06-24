@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   if (loading) return <Loader />;
   if (error) {
     console.log(error);
-    return <p>{error.message}</p>;
+    return <Loader />;
   }
 
   return (

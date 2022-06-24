@@ -1,0 +1,37 @@
+@import "../../assets/colours.scss";
+
+.main_container {
+  display: flex;
+  $border-radius: 0.5rem;
+
+  & > img {
+    $size: 15rem;
+    width: $size;
+    height: $size * 1.5;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+  .container {
+    background-color: $background-dark;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 2rem;
+    &__name_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .rating_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+      }
+    }
+  }
+}
