@@ -10,3 +10,13 @@ export const SIX_RANDOM_MOVIES = gql`
     }
   }
 `;
+
+// MOVIES BY ID
+export const GET_MOVIE_BY_ID = gql`
+  query ($movieId: Int!) {
+    getmovie(movieId: $movieId) {
+      movie_name
+      movie_image
+    }
+  }
+`;
