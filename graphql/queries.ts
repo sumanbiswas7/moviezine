@@ -23,3 +23,19 @@ export const GET_MOVIE_BY_ID = gql`
     }
   }
 `;
+
+// MOVIES FOR UPDATE
+export const GET_MOVIE_UPDATE = gql`
+  query ($movieId: Int!) {
+    getmovie(movieId: $movieId) {
+      movie_name
+      movie_image
+      movie_description
+      movie_director
+      movie_cast
+      movie_rating
+      movie_type
+      movie_release
+    }
+  }
+`;

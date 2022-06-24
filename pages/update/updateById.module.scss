@@ -1,0 +1,35 @@
+@import "../../assets/colours.scss";
+
+.main_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > img {
+    width: 15%;
+    height: auto;
+    margin-right: 1rem;
+  }
+  .form_container {
+    display: flex;
+    flex-direction: column;
+    & > input,
+    & > textarea,
+    & > select {
+      color: #fff;
+      background-color: $background-dark;
+      border: none;
+      margin-bottom: 0.25rem;
+      width: 20rem;
+      min-height: 2.5rem;
+      transition: 0.2s all;
+      padding-left: 0.5rem;
+      resize: vertical;
+
+      &:focus {
+        outline: 1px solid $accent;
+      }
+    }
+  }
+}
