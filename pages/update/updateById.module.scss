@@ -6,18 +6,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 625px) {
+  @media only screen and (max-width: 670px) {
     flex-direction: column;
   }
   & > img {
-    width: 15rem;
-    height: auto;
+    width: auto;
+    height: 26rem;
     margin-right: 1rem;
     border-radius: 0.3rem;
 
-    @media only screen and (max-width: 625px) {
+    @media only screen and (max-width: 670px) {
       margin-bottom: 1rem;
-      width: 11rem;
+      width: 10rem;
+      height: auto;
     }
   }
   .form_container {
@@ -44,6 +45,9 @@
       background-color: $accent;
       border: none;
       min-height: 2.5rem;
+    }
+    & > textarea {
+      min-height: 6.5rem;
     }
   }
 }

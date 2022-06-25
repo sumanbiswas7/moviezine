@@ -27,6 +27,7 @@ export default function Id() {
         image={movie.movie_image}
         rating={parseFloat(movie.movie_rating).toFixed(1)}
         casts={movie.movie_casts}
+        type={movie.movie_type}
       />
     </div>
   );

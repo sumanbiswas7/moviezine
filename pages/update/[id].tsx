@@ -1,8 +1,12 @@
 import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { FormEvent } from "react";
-import { Loader } from "../../components/loader/Loader";
-import { GET_MOVIE_UPDATE, UPDATE_MOVIE } from "../../graphql/queries";
+import { Loader, UpdateLoader } from "../../components/loader/Loader";
+import {
+  GET_MOVIE_BY_ID,
+  GET_MOVIE_UPDATE,
+  UPDATE_MOVIE,
+} from "../../graphql/queries";
 import styles from "./updateById.module.scss";
 import { useRef } from "react";
 
@@ -16,24 +20,33 @@ export default function UpdateById() {
   const typeRef = useRef<HTMLSelectElement>(null);
   const releaseRef = useRef<HTMLInputElement>(null);
 
-  const { id }: any = useRouter().query;
+  const router = useRouter();
+  const { id }: any = router.query;
+
   const { loading, data, error } = useQuery(GET_MOVIE_UPDATE, {
     variables: {
       movieId: parseInt(id),
     },
   });
-  const [updateMovie, update] = useMutation(UPDATE_MOVIE);
+  const [updateMovie, update] = useMutation(UPDATE_MOVIE, {
+    refetchQueries: [
+      { query: GET_MOVIE_BY_ID, variables: { movieId: parseInt(id) } },
+    ],
+  });
   if (loading) return <Loader />;
   if (error) {
     console.log(error);
     return <Loader />;
   }
   if (update.loading) {
-    return <p>Updating</p>;
+    return <UpdateLoader />;
   }
   if (update.error) {
     console.log(update.error.message);
     return <p>UPDATE ERROR</p>;
+  }
+  if (update.data) {
+    router.replace("/");
   }
   const {
     movie_name,

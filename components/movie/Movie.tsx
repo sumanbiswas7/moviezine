@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   director: string;
   casts?: string;
+  type: string;
 }
 
 export function Movie({
@@ -17,6 +18,7 @@ export function Movie({
   director,
   description,
   casts,
+  type,
 }: Props) {
   return (
     <div className={styles.main_container}>
@@ -33,7 +35,7 @@ export function Movie({
           <p className={styles.info}>Director - {director}</p>
           {casts && <p className={styles.info}>Casts - {casts}</p>}
         </div>
-        <div className={styles.movie_type}>Science Fiction</div>
+        <div className={styles.movie_type}>{type}</div>
         {description && <p className={styles.description}>{description}</p>}
         <div className={styles.container__footer_box}></div>
       </div>
