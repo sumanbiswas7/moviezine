@@ -22,7 +22,7 @@ export function Movie({ image, name, rating, director, description }: Props) {
           </div>
         </div>
         <p>Director - {director}</p>
-        <p>{description}</p>
+        <p className={styles.description}>{description}</p>
         <div className={styles.container__footer_box}></div>
       </div>
     </div>

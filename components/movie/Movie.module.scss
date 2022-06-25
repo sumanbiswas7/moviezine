@@ -31,6 +31,10 @@
     justify-content: space-around;
     align-items: flex-start;
     padding-left: 2rem;
+    padding-right: 1rem;
+    .description {
+      font-size: 0.7rem;
+    }
     @media only screen and (max-width: 745px) {
       width: 100%;
       border-radius: 0;
@@ -46,7 +50,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 1rem;
       }
     }
   }

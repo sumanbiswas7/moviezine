@@ -6,10 +6,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 625px) {
+    flex-direction: column;
+  }
   & > img {
-    width: 15%;
+    width: 15rem;
     height: auto;
     margin-right: 1rem;
+    border-radius: 0.3rem;
+
+    @media only screen and (max-width: 625px) {
+      margin-bottom: 1rem;
+      width: 11rem;
+    }
   }
   .form_container {
     display: flex;
@@ -30,6 +39,11 @@
       &:focus {
         outline: 1px solid $accent;
       }
+    }
+    & > button {
+      background-color: $accent;
+      border: none;
+      min-height: 2.5rem;
     }
   }
 }

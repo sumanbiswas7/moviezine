@@ -39,3 +39,9 @@ export const GET_MOVIE_UPDATE = gql`
     }
   }
 `;
+
+export const UPDATE_MOVIE = gql`
+  mutation ($movie: updateMovie!) {
+    updateMovie(movie: $movie)
+  }
+`;
