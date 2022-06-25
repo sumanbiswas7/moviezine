@@ -20,6 +20,8 @@ export const GET_MOVIE_BY_ID = gql`
       movie_description
       movie_director
       movie_rating
+      movie_casts
+      movie_type
     }
   }
 `;
@@ -32,7 +34,7 @@ export const GET_MOVIE_UPDATE = gql`
       movie_image
       movie_description
       movie_director
-      movie_cast
+      movie_casts
       movie_rating
       movie_type
       movie_release

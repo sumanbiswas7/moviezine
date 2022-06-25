@@ -17,6 +17,7 @@ export default function Id() {
   }
 
   const movie = data.getmovie[0];
+  console.log(movie);
   return (
     <div className={styles.main_continer}>
       <Movie
@@ -25,6 +26,7 @@ export default function Id() {
         director={movie.movie_director}
         image={movie.movie_image}
         rating={parseFloat(movie.movie_rating).toFixed(1)}
+        casts={movie.movie_casts}
       />
     </div>
   );

@@ -32,8 +32,17 @@
     align-items: flex-start;
     padding-left: 2rem;
     padding-right: 1rem;
+    .movie_type {
+      background: #515961;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 2rem;
+    }
     .description {
       font-size: 0.7rem;
+    }
+    .info {
+      font-size: 0.8rem;
     }
     @media only screen and (max-width: 745px) {
       width: 100%;

@@ -40,7 +40,7 @@ export default function UpdateById() {
     movie_image,
     movie_description,
     movie_director,
-    movie_cast,
+    movie_casts,
     movie_rating,
     movie_type,
     movie_release,
@@ -97,7 +97,7 @@ export default function UpdateById() {
         />
         <input
           placeholder="movie cast"
-          defaultValue={movie_cast}
+          defaultValue={movie_casts}
           ref={castRef}
         />
         <input

@@ -5,11 +5,19 @@ interface Props {
   image: string;
   name: string;
   rating: number | string;
-  description: string;
+  description?: string;
   director: string;
+  casts?: string;
 }
 
-export function Movie({ image, name, rating, director, description }: Props) {
+export function Movie({
+  image,
+  name,
+  rating,
+  director,
+  description,
+  casts,
+}: Props) {
   return (
     <div className={styles.main_container}>
       <img src={image} className={styles.image} />
@@ -21,8 +29,12 @@ export function Movie({ image, name, rating, director, description }: Props) {
             {rating}
           </div>
         </div>
-        <p>Director - {director}</p>
-        <p className={styles.description}>{description}</p>
+        <div>
+          <p className={styles.info}>Director - {director}</p>
+          {casts && <p className={styles.info}>Casts - {casts}</p>}
+        </div>
+        <div className={styles.movie_type}>Science Fiction</div>
+        {description && <p className={styles.description}>{description}</p>}
         <div className={styles.container__footer_box}></div>
       </div>
     </div>
