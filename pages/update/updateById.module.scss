@@ -9,17 +9,23 @@
   @media only screen and (max-width: 670px) {
     flex-direction: column;
   }
-  & > img {
+  & > label > img {
     width: auto;
     height: 26rem;
     margin-right: 1rem;
     border-radius: 0.3rem;
-
     @media only screen and (max-width: 670px) {
       margin-bottom: 1rem;
       width: 10rem;
       height: auto;
     }
+  }
+
+  .image_input {
+    display: none;
+  }
+  .img_input_label {
+    overflow: hidden;
   }
   .form_container {
     display: flex;

@@ -1,6 +1,6 @@
 import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Loader, UpdateLoader } from "../../components/loader/Loader";
 import {
   GET_MOVIE_BY_ID,
@@ -22,6 +22,7 @@ export default function UpdateById() {
 
   const router = useRouter();
   const { id }: any = router.query;
+  const [previewImg, setPreviewImg] = useState();
 
   const { loading, data, error } = useQuery(GET_MOVIE_UPDATE, {
     variables: {
@@ -33,6 +34,13 @@ export default function UpdateById() {
       { query: GET_MOVIE_BY_ID, variables: { movieId: parseInt(id) } },
     ],
   });
+
+  useEffect(() => {
+    if (data) {
+      setPreviewImg(data.getmovie[0].movie_image);
+    }
+  }, [data]);
+
   if (loading) return <Loader />;
   if (error) {
     console.log(error);
@@ -89,9 +97,29 @@ export default function UpdateById() {
     });
   }
 
+  function onImageChange(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files![0];
+    const img_url = URL.createObjectURL(file);
+    setPreviewImg(img_url);
+  }
+
   return (
     <div className={styles.main_container}>
-      <img src={movie_image} ref={imgRef} />
+      <input
+        type="file"
+        name="file"
+        id="imgInput"
+        accept="image/png, image/jpg, image/jpeg"
+        className={styles.image_input}
+        onChange={onImageChange}
+      />
+      <label
+        className={styles.img_input_label}
+        style={{ color: "#999999" }}
+        htmlFor="imgInput"
+      >
+        <img src={previewImg} ref={imgRef} />
+      </label>
       <form onSubmit={handleSubmit} className={styles.form_container}>
         <input
           placeholder="movie name"
