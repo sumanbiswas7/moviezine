@@ -25,6 +25,13 @@ export const GET_MOVIE_BY_ID = gql`
     }
   }
 `;
+export const GET_UPLOAD_IMG_URL = gql`
+  query {
+    uploadimage {
+      url
+    }
+  }
+`;
 
 // MOVIES FOR UPDATE
 export const GET_MOVIE_UPDATE = gql`

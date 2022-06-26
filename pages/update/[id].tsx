@@ -1,10 +1,16 @@
-import { ApolloError, useMutation, useQuery } from "@apollo/client";
+import {
+  ApolloError,
+  useLazyQuery,
+  useMutation,
+  useQuery,
+} from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Loader, UpdateLoader } from "../../components/loader/Loader";
 import {
   GET_MOVIE_BY_ID,
   GET_MOVIE_UPDATE,
+  GET_UPLOAD_IMG_URL,
   UPDATE_MOVIE,
 } from "../../graphql/queries";
 import styles from "./updateById.module.scss";
@@ -24,7 +30,7 @@ export default function UpdateById() {
   const { id }: any = router.query;
   const [previewImg, setPreviewImg] = useState();
 
-  const { loading, data, error } = useQuery(GET_MOVIE_UPDATE, {
+  const getmovie = useQuery(GET_MOVIE_UPDATE, {
     variables: {
       movieId: parseInt(id),
     },
@@ -34,28 +40,21 @@ export default function UpdateById() {
       { query: GET_MOVIE_BY_ID, variables: { movieId: parseInt(id) } },
     ],
   });
+  const [getImgUrl] = useLazyQuery(GET_UPLOAD_IMG_URL, {
+    fetchPolicy: "no-cache",
+  });
 
   useEffect(() => {
-    if (data) {
-      setPreviewImg(data.getmovie[0].movie_image);
+    if (getmovie.data) {
+      setPreviewImg(getmovie.data.getmovie[0].movie_image);
     }
-  }, [data]);
+  }, [getmovie.data]);
 
-  if (loading) return <Loader />;
-  if (error) {
-    console.log(error);
-    return <Loader />;
-  }
-  if (update.loading) {
-    return <UpdateLoader />;
-  }
-  if (update.error) {
-    console.log(update.error.message);
-    return <p>UPDATE ERROR</p>;
-  }
-  if (update.data) {
-    router.replace("/");
-  }
+  if (getmovie.loading) return <Loader />;
+  if (getmovie.error) return <Loader />;
+  if (update.loading) return <UpdateLoader />;
+  if (update.error) return <p>UPDATE ERROR</p>;
+  if (update.data) router.replace("/");
   const {
     movie_name,
     movie_image,
@@ -65,7 +64,7 @@ export default function UpdateById() {
     movie_rating,
     movie_type,
     movie_release,
-  } = data.getmovie[0];
+  } = getmovie.data.getmovie[0];
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -99,7 +98,15 @@ export default function UpdateById() {
 
   function onImageChange(e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files![0];
-    const img_url = URL.createObjectURL(file);
+    const img_url: any = URL.createObjectURL(file);
+
+    getImgUrl()
+      .then((res) => {
+        const uploadUrl = res.data.uploadimage.url;
+        console.log(uploadUrl);
+      })
+      .catch((err) => console.log(err));
+
     setPreviewImg(img_url);
   }
 
