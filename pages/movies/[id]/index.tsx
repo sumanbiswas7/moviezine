@@ -17,7 +17,6 @@ export default function Id() {
   }
 
   const movie = data.getmovie[0];
-  console.log(movie);
   return (
     <div className={styles.main_continer}>
       <Movie

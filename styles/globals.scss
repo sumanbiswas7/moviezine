@@ -26,3 +26,10 @@ a {
 * {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #515961;
+}

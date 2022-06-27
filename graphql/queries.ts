@@ -10,6 +10,19 @@ export const SIX_RANDOM_MOVIES = gql`
     }
   }
 `;
+// MOVIES
+export const GET_20_MOVIES = gql`
+  query {
+    randommovies(limit: 20) {
+      movie_image
+      movie_id
+      movie_rating
+      movie_release
+      movie_name
+      movie_type
+    }
+  }
+`;
 
 // MOVIES BY ID
 export const GET_MOVIE_BY_ID = gql`

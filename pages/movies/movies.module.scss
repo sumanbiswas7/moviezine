@@ -1,0 +1,12 @@
+.movie_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  .movie_row_1 {
+    justify-self: flex-start;
+  }
+  .movie_row_2 {
+    justify-self: flex-end;
+  }
+}

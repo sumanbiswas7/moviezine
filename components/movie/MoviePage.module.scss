@@ -1,9 +1,15 @@
+@import "../../assets/colours.scss";
+
 .movie_container {
   display: flex;
-  background-color: rebeccapurple;
+  background-color: $background-dark;
   align-items: center;
   justify-content: flex-start;
   padding-right: 1rem;
+  width: 48vw;
+  margin-bottom: 0.5rem;
+  margin-inline: 0.25rem;
+  cursor: pointer;
   & > img {
     $size: 7rem;
     width: $size;
@@ -15,5 +21,21 @@
   }
   .rating_release_box {
     margin-left: auto;
+  }
+  .rating_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .movie_type {
+    background-color: #515961;
+    width: fit-content;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+  }
+  .movie_release {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
   }
 }
