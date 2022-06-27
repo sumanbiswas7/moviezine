@@ -1,0 +1,19 @@
+.movie_container {
+  display: flex;
+  background-color: rebeccapurple;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 1rem;
+  & > img {
+    $size: 7rem;
+    width: $size;
+    height: $size * 1.5;
+    object-fit: cover;
+  }
+  .info_box {
+    margin-left: 2rem;
+  }
+  .rating_release_box {
+    margin-left: auto;
+  }
+}
