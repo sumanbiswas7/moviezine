@@ -29,6 +29,8 @@ export default function UpdateById() {
   const router = useRouter();
   const { id }: any = router.query;
   const [previewImg, setPreviewImg] = useState();
+  const [changed, setChanged] = useState(false);
+  const [imgFile, setImgFile] = useState<File | undefined>();
 
   const getmovie = useQuery(GET_MOVIE_UPDATE, {
     variables: {
@@ -77,37 +79,74 @@ export default function UpdateById() {
     const type = typeRef.current?.value;
     const release = releaseRef.current!.value;
 
-    const updateData = {
-      ID: parseInt(id),
-      movie_name: name,
-      movie_image: img,
-      movie_description: description,
-      movie_director: director,
-      movie_casts: cast,
-      movie_rating: parseFloat(rating),
-      movie_type: type,
-      movie_release: parseInt(release),
-    };
-    console.log(updateData);
-    updateMovie({
-      variables: {
-        movie: updateData,
-      },
-    });
+    if (changed) {
+      getImgUrl()
+        .then((res) => {
+          const uploadUrl = res.data.uploadimage.url;
+          uploadImagetoS3(imgFile!, uploadUrl);
+
+          async function uploadImagetoS3(file: File, uploadUrl: string) {
+            // post the image direclty to the s3 bucket
+            await fetch(uploadUrl, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+              body: file,
+            })
+              .then(() => {
+                const imageUrl = uploadUrl.split("?")[0];
+                console.log(`Image Uploaded at - ${imageUrl}`);
+
+                const updateData = {
+                  ID: parseInt(id),
+                  movie_name: name,
+                  movie_image: imageUrl,
+                  movie_description: description,
+                  movie_director: director,
+                  movie_casts: cast,
+                  movie_rating: parseFloat(rating),
+                  movie_type: type,
+                  movie_release: parseInt(release),
+                };
+                console.log(updateData);
+                updateMovie({
+                  variables: {
+                    movie: updateData,
+                  },
+                });
+              })
+              .catch((e) => console.error(e));
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      const updateData = {
+        ID: parseInt(id),
+        movie_name: name,
+        movie_image: img,
+        movie_description: description,
+        movie_director: director,
+        movie_casts: cast,
+        movie_rating: parseFloat(rating),
+        movie_type: type,
+        movie_release: parseInt(release),
+      };
+      console.log(updateData);
+      updateMovie({
+        variables: {
+          movie: updateData,
+        },
+      });
+    }
   }
 
   function onImageChange(e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files![0];
     const img_url: any = URL.createObjectURL(file);
-
-    getImgUrl()
-      .then((res) => {
-        const uploadUrl = res.data.uploadimage.url;
-        console.log(uploadUrl);
-      })
-      .catch((err) => console.log(err));
-
     setPreviewImg(img_url);
+    setImgFile(file);
+    setChanged(true);
   }
 
   return (
