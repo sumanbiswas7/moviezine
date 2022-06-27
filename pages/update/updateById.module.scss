@@ -11,7 +11,10 @@
   }
   & > label > img {
     width: auto;
-    height: 26rem;
+    $size: 17.2rem;
+    width: $size;
+    height: $size * 1.5;
+    object-fit: cover;
     margin-right: 1rem;
     border-radius: 0.3rem;
     @media only screen and (max-width: 670px) {
