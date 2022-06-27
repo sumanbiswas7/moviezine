@@ -17,26 +17,26 @@ export function NavLinks() {
           home
         </a>
       </Link>
-      <Link href={"/topmovies"}>
+      <Link href={"/movies"}>
         <a
           className={
-            pathname == "/topmovies"
+            pathname == "/movies"
               ? styles.link_container__active_link
               : styles.link_container__link
           }
         >
-          top movies
+          movies
         </a>
       </Link>
-      <Link href={"/suggestions"}>
+      <Link href={"/newmovie"}>
         <a
           className={
-            pathname == "/suggestions"
+            pathname == "/newmovie"
               ? styles.link_container__active_link
               : styles.link_container__link
           }
         >
-          suggestions
+          new movie
         </a>
       </Link>
     </div>
