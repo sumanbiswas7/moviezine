@@ -19,6 +19,7 @@
   }
   @media only screen and (max-width: 700px) {
     $size-small: 7rem;
+    $size-small: 28vw;
     width: $size-small;
     height: $size-small * 1.5;
     margin-inline: 0.5rem;

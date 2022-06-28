@@ -1,0 +1,73 @@
+@import "../../assets/colours.scss";
+@import "../../assets/constants.scss";
+
+.main_container {
+  height: 100vh - $nav-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 650px) {
+    padding-top: 1rem;
+    height: auto;
+  }
+}
+.container {
+  display: flex;
+  height: 23rem;
+  margin: auto;
+  width: 100%;
+  @media only screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  @media only screen and (min-width: 850px) {
+    width: 70%;
+  }
+  .image_input {
+    display: none;
+  }
+  & > label > img {
+    height: 100%;
+    width: 15rem;
+    cursor: pointer;
+    object-fit: cover;
+    @media only screen and (max-width: 650px) {
+      margin-inline: auto;
+      width: 10rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+  .movie_form {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    & > input,
+    & > textarea,
+    & > select {
+      color: #fff;
+      background-color: $background-dark;
+      border: none;
+      margin-bottom: 0.25rem;
+      padding-left: 0.5rem;
+      height: 2.5rem;
+      @media only screen and (max-width: 650px) {
+        width: 95vw;
+      }
+      &:focus {
+        outline: 1px solid $accent;
+      }
+    }
+    & > textarea {
+      resize: vertical;
+      min-height: 4rem;
+      max-height: 8rem;
+    }
+    & > button {
+      background-color: $accent;
+      border: none;
+      min-height: 2.5rem;
+    }
+  }
+}
