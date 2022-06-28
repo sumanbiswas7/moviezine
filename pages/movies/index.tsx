@@ -8,7 +8,7 @@ import styles from "./movies.module.scss";
 interface MoviePage {
   movie_id: number;
   movie_image: string;
-  movie_rating: number;
+  movie_rating: string;
   movie_release: number;
   movie_name: string;
   movie_type: string;
@@ -20,6 +20,7 @@ export default function Movies() {
   if (loading) return <Loader />;
   if (error) return <Loader />;
   const movie = data.randommovies;
+
   return (
     <>
       <NavBar />

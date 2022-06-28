@@ -5,7 +5,7 @@ import Link from "next/link";
 interface Props {
   movie_id: number;
   movie_image: string;
-  movie_rating: number;
+  movie_rating: string;
   movie_release: number;
   movie_name: string;
   movie_type: string;
@@ -30,7 +30,7 @@ export function MoviePage({
         <div className={styles.rating_release_box}>
           <div className={styles.rating_box}>
             <AiFillStar style={{ marginRight: 5 }} color="#61892f" />
-            {movie_rating}
+            {parseFloat(movie_rating).toFixed(1)}
           </div>
           <div className={styles.movie_release}>{movie_release}</div>
         </div>
