@@ -1,16 +1,11 @@
 import { NavBar } from "../../components/navbar/NavBar";
 import styles from "./newmovie.module.scss";
-import {
-  ChangeEvent,
-  FormEvent,
-  FormEventHandler,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { useLazyQuery, useMutation } from "@apollo/client";
 import { ADD_MOVIE, GET_UPLOAD_IMG_URL } from "../../graphql/queries";
 import { useRouter } from "next/router";
 import { UpdateLoader } from "../../components/loader/Loader";
+import { ClipLoader } from "react-spinners";
 
 export default function Movies() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -58,6 +53,7 @@ export default function Movies() {
       !imgChanged
     ) {
       alert("Please note every field is required");
+      setUploading(false);
       return;
     }
 
@@ -158,7 +154,13 @@ export default function Movies() {
               max="2023"
               ref={releaseRef}
             />
-            <button disabled={uploading}>Submit</button>
+            <button disabled={uploading}>
+              {uploading ? (
+                <ClipLoader color="#fff" size={18} speedMultiplier={1.5} />
+              ) : (
+                "Submit"
+              )}
+            </button>
           </form>
         </div>
       </div>
