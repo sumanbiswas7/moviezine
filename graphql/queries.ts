@@ -67,3 +67,9 @@ export const UPDATE_MOVIE = gql`
     updateMovie(movie: $movie)
   }
 `;
+
+export const ADD_MOVIE = gql`
+  mutation ($movie: addMovie!) {
+    addMovie(movie: $movie)
+  }
+`;

@@ -26,21 +26,6 @@ export default function Movies() {
       <NavBar />
       <div className={styles.movie_row}>
         <div className={styles.movie_row_1}>
-          {movie.slice(0, movie.length / 2).map((item: MoviePage) => {
-            return (
-              <MoviePage
-                key={item.movie_id}
-                movie_image={item.movie_image}
-                movie_name={item.movie_name}
-                movie_rating={item.movie_rating}
-                movie_release={item.movie_release}
-                movie_type={item.movie_type}
-                movie_id={item.movie_id}
-              />
-            );
-          })}
-        </div>
-        <div className={styles.movie_row_2}>
           {movie
             .slice(movie.length / 2, movie.length)
             .map((item: MoviePage) => {
@@ -56,6 +41,21 @@ export default function Movies() {
                 />
               );
             })}
+        </div>
+        <div className={styles.movie_row_2}>
+          {movie.slice(0, movie.length / 2).map((item: MoviePage) => {
+            return (
+              <MoviePage
+                key={item.movie_id}
+                movie_image={item.movie_image}
+                movie_name={item.movie_name}
+                movie_rating={item.movie_rating}
+                movie_release={item.movie_release}
+                movie_type={item.movie_type}
+                movie_id={item.movie_id}
+              />
+            );
+          })}
         </div>
       </div>
     </>
