@@ -22,6 +22,7 @@ export default function Movies() {
   const [imgFile, setImgFile] = useState<File | undefined>();
   const [imgChanged, setImgChanged] = useState(false);
   const [uploading, setUploading] = useState(false);
+
   const [getImgUrl] = useLazyQuery(GET_UPLOAD_IMG_URL, {
     fetchPolicy: "no-cache",
   });
@@ -97,7 +98,6 @@ export default function Movies() {
       })
       .catch((e) => console.error(e));
   }
-
   function onImageChange(e: ChangeEvent<HTMLInputElement>) {
     const imgFile = e.target.files![0];
     const imgUrl = URL.createObjectURL(imgFile);

@@ -15,4 +15,5 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
+export { client };
 export default MyApp;
