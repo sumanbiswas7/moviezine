@@ -14,9 +14,11 @@
     background-color: $background;
     width: 70%;
     height: max-content;
+    height: 100%;
     align-self: center;
     display: flex;
     justify-content: center;
+    align-items: center;
     overflow-y: scroll;
     scroll-behavior: smooth;
     &::-webkit-scrollbar {
@@ -24,6 +26,7 @@
     }
     &__col {
       height: 100%;
+      height: max-content;
     }
     @media only screen and (max-width: 870px) {
       width: max-content;
