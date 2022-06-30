@@ -8,8 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media only screen and (max-width: 870px) {
     flex-direction: row;
+    position: absolute;
+    bottom: 0;
   }
 
   .feature_img {

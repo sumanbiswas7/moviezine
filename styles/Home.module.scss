@@ -5,10 +5,10 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
+  // z-index: 1;
   @media only screen and (max-width: 870px) {
     flex-direction: column;
-    // height: 93vh - $nav-height;
+    height: max-content;
   }
   &__1 {
     background-color: $background;
