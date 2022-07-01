@@ -11,6 +11,7 @@
     padding-inline: 0.75rem;
   }
 }
+
 .nav_btn_container {
   @media only screen and (min-width: 400px) {
     display: none;
@@ -40,11 +41,11 @@
     width: $line-width;
     height: $line-height;
     background-color: #fff;
-    margin-bottom: 5px;
   }
   .btn_line_1 {
   }
   .btn_line_2 {
+    margin-block: 5px;
   }
   .btn_line_3 {
   }
@@ -54,10 +55,12 @@
   position: fixed;
   top: 0;
   right: 0;
-  background-color: rebeccapurple;
   background-color: #515961;
+  box-shadow: -5px 10px 15px -2px rgba(0, 0, 0, 0.58);
+  border-left: 2px solid $accent;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  z-index: 99;
   & > li {
     margin-bottom: 1rem;
     font-size: 1.2rem;

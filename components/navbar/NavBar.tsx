@@ -24,14 +24,14 @@ export function NavBar() {
       </div>
       {modal && (
         <ul className={styles.nav_mobile_links}>
-          <Link href={"/movies"}>
+          <Link href={"/"}>
             <li>home</li>
           </Link>
           <Link href={"/movies"}>
             <li>movies</li>
           </Link>
-          <Link href={"/movies"}>
-            <li>new movies</li>
+          <Link href={"/newmovie"}>
+            <li>new movie</li>
           </Link>
         </ul>
       )}
