@@ -41,13 +41,21 @@
     width: $line-width;
     height: $line-height;
     background-color: #fff;
+    transition: all 0.3s;
   }
-  .btn_line_1 {
-  }
-  .btn_line_2 {
+  #btn_line_2 {
     margin-block: 5px;
   }
-  .btn_line_3 {
+  #btn_active_line_1 {
+    transform: rotate(45deg);
+    position: relative;
+  }
+  #btn_active_line_2 {
+    display: none;
+  }
+  #btn_active_line_3 {
+    transform: rotate(-45deg);
+    position: absolute;
   }
 }
 
@@ -61,9 +69,20 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   z-index: 99;
+  animation-name: modal-animation;
+  animation-duration: 1s;
   & > li {
     margin-bottom: 1rem;
     font-size: 1.2rem;
     width: 14rem;
+  }
+
+  @keyframes modal-animation {
+    0% {
+      transform: rotate3d(120);
+    }
+    100% {
+      transform: rotate(0);
+    }
   }
 }

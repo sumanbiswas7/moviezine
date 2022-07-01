@@ -17,9 +17,15 @@ export function NavBar() {
       <NavLinks />
       <div className={styles.nav_btn_container}>
         <button onClick={handleModalClick} className={styles.nav_btn}>
-          <span className={styles.btn_line_1}></span>
-          <span className={styles.btn_line_2}></span>
-          <span className={styles.btn_line_3}></span>
+          <span
+            id={modal ? styles.btn_active_line_1 : styles.btn_line_1}
+          ></span>
+          <span
+            id={modal ? styles.btn_active_line_2 : styles.btn_line_2}
+          ></span>
+          <span
+            id={modal ? styles.btn_active_line_3 : styles.btn_line_3}
+          ></span>
         </button>
       </div>
       {modal && (
