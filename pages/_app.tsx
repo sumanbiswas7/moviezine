@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://moviezine-server.onrender.com",
+  uri: "https://e7zuxg9qv4.execute-api.ap-south-1.amazonaws.com/",
   cache: new InMemoryCache(),
 });
 
